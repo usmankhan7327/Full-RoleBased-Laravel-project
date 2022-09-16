@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Routing\Events\Routing;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +74,9 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 //authenticate user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
+
+//manage users
+Route::get('/users/manage', [RolesController::class, 'manage'])->middleware('auth');
 
 
 
